@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../Task';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
+import {TaskService} from "../../services/task.service";
 
 @Component({
   selector: 'app-task-item',
@@ -11,10 +12,14 @@ export class TaskItemComponent implements OnInit {
   @Input()
   task!: Task;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output() onToggleReminder: EventEmitter<Task> = new EventEmitter<Task>();
-  faTimes = faTimes;
 
-  constructor() { }
+  taskModeEditing: boolean = false;
+  faTimes = faTimes;
+  faEdit = faEdit;
+
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +30,20 @@ export class TaskItemComponent implements OnInit {
 
   onToggle(task: Task){
     this.onToggleReminder.emit(task);
+  }
+
+  onEdit(task: Task){
+    this.taskModeEditing = !this.taskModeEditing;
+    this.onEditTask.emit(task);
+  }
+
+  closeTaskModeEditing(){
+    this.taskModeEditing = !this.taskModeEditing;
+  }
+
+  editTask(task: Task){
+    this.taskModeEditing = !this.taskModeEditing;
+    this.taskService.updateTask(task).subscribe((task) => (console.log(task)));
   }
 
 }

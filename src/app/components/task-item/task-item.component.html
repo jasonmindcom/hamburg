@@ -4,9 +4,22 @@
   (dblclick)="onToggle(task)"
 >
   <h3>{{ task.text }}
-    <fa-icon
-      (click)="onDelete(task)"
-      [ngStyle]="{'color': 'red'}"
-      [icon]="faTimes"></fa-icon></h3>
+    <div *ngIf="!taskModeEditing">
+      <fa-icon
+        (click)="onEdit(task)"
+        [icon]="faEdit"
+        style="margin-right: 10px"></fa-icon>
+      <fa-icon
+        (click)="onDelete(task)"
+        [ngStyle]="{'color': 'red'}"
+        [icon]="faTimes"></fa-icon>
+    </div>
+    <button *ngIf="taskModeEditing" style="background-color: red" class="btn"
+            (click)="closeTaskModeEditing()">
+      Close edit mode
+    </button>
+  </h3>
   <p>{{ task.day }}</p>
 </div>
+<app-edit-task *ngIf="taskModeEditing" (onEditTask)="editTask($event)" [task]="task"></app-edit-task>
+
