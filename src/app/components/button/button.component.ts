@@ -7,7 +7,7 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() text: string | undefined;
-  @Input() color: string | undefined;
+  @Input() addingTaskMode: boolean = false;
   @Output() btnClick = new EventEmitter();
 
   constructor() { }

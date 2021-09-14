@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../Task';
-import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
+import {faTimes, faEdit, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import {TaskService} from "../../services/task.service";
 
 @Component({
@@ -16,6 +16,7 @@ export class TaskItemComponent implements OnInit {
   @Output() onToggleReminder: EventEmitter<Task> = new EventEmitter<Task>();
 
   taskModeEditing: boolean = false;
+  faArrowUp = faArrowUp;
   faTimes = faTimes;
   faEdit = faEdit;
 

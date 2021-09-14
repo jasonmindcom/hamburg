@@ -4,7 +4,7 @@
   (dblclick)="onToggle(task)"
 >
   <h3>{{ task.text }}
-    <div *ngIf="!taskModeEditing">
+    <div *ngIf="!taskModeEditing; else noTaskModeEditing">
       <fa-icon
         (click)="onEdit(task)"
         [icon]="faEdit"
@@ -14,10 +14,12 @@
         [ngStyle]="{'color': 'red'}"
         [icon]="faTimes"></fa-icon>
     </div>
-    <button *ngIf="taskModeEditing" style="background-color: red" class="btn"
-            (click)="closeTaskModeEditing()">
-      Close edit mode
-    </button>
+    <ng-template #noTaskModeEditing>
+        <fa-icon
+          (click)="closeTaskModeEditing()"
+          [icon]="faArrowUp"
+        ></fa-icon>
+    </ng-template>
   </h3>
   <p>{{ task.day }}</p>
 </div>
