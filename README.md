@@ -13,9 +13,9 @@
 * Home (3 views)
   * Views elements
     * [x] Login & Register buttons
-    * [ ] To-do list component
+    * [x] To-do list component
   * Views
-    * [ ] View 1 - To-do list - data stored in DataStorage, or create new project - another options
+    * [x] View 1 - To-do list - data stored in DataStorage, or create new project - another options
     * [ ] View 2 - Button - Create new project -> Move to view 1
     * [ ] View 3 - To-do list - data for auth user (Data stored in the RealTime DataBase)
 * [ ] Login page 
