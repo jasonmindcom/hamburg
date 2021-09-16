@@ -1,18 +1,18 @@
 # Hamburg - Task Tracker App 
-![version](https://img.shields.io/badge/version-0.1.0-yellow.svg)
+![version](https://img.shields.io/badge/version-0.2.1-yellow.svg)
 
 ### On progress
 🔃 Init ESlint
 
 ### To do 
 * Unit test
-* Authentication, router, protection
+* Authentication, protection
 * Angular animations
 
 ## Structure of project (v1.0.0) pages
 * Home (3 views)
   * Views elements
-    * [ ] Login & Register buttons
+    * [x] Login & Register buttons
     * [ ] To-do list component
   * Views
     * [ ] View 1 - To-do list - data stored in DataStorage, or create new project - another options
@@ -24,5 +24,6 @@
 ### Improvement since first version (Temporary)
 * HTTP error handling
 * Edit task
+* Routers
 
 

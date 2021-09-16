@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {UiService} from "../../services/ui.service";
+import {UiService} from "../../../services/ui.service";
 import {Subscription} from "rxjs";
 import {Router} from '@angular/router'
 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-tasks-header',
+  templateUrl: './tasks-header.component.html',
+  styleUrls: ['./tasks-header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class TasksHeaderComponent implements OnInit {
   title: string = 'Hamburg - Task Tracker';
   showAddTask!: boolean;
   subscription!: Subscription

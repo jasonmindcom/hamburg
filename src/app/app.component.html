@@ -1,5 +1,8 @@
-<div class="container max-w-lg border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-900 border-2 mx-auto pt-8 pb-8 mt-4 mb-4 sm:mt-10">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
+<app-layout-header></app-layout-header>
+<div class="container max-w-6xl border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-900 border-2 mx-auto pt-8 pb-8 mt-4 mb-4 sm:mt-10">
+  <div class="max-w-lg mx-auto">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+<app-layout-footer></app-layout-footer>
+

@@ -1,3 +1,5 @@
+colors = require('tailwindcss/colors')
+
 module.exports = {
   mode: 'jit',
   purge: {
@@ -7,6 +9,15 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      orange: colors.orange,
+      gray: colors.coolGray,
+      red: colors.red,
+      blue: colors.sky,
+      yellow: colors.amber,
+    },
     container: {
       padding: '2rem'
     },
