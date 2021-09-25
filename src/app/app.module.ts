@@ -10,6 +10,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 
+import { AuthenticationModule } from './authentication/authentication.module'
+
 import {
   FooterComponent,
   HeaderComponent,
@@ -22,7 +24,8 @@ import {
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'login', loadChildren: './authentication/authentication.module#AuthenticationModule'}
 ]
 
 @NgModule({
@@ -41,6 +44,7 @@ const appRoutes: Routes = [
     FormsModule,
     SharedModule,
     TasksModule,
+    AuthenticationModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
   providers: [],

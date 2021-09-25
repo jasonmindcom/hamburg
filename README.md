@@ -2,7 +2,9 @@
 ![version](https://img.shields.io/badge/version-0.2.1-yellow.svg)
 
 ### On progress
-🔃 Init ESlint
+* 🔃 Init Lazy-loading for modules
+* 🔃 Init dynamic Toast
+* 🔃 Init ESlint
 
 ### To do 
 * Unit test
