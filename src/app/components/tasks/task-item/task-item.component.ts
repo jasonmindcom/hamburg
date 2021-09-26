@@ -15,10 +15,10 @@ export class TaskItemComponent implements OnInit {
   @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output() onToggleReminder: EventEmitter<Task> = new EventEmitter<Task>();
 
-  taskModeEditing: boolean = false;
-  faArrowUp = faArrowUp;
-  faTimes = faTimes;
-  faEdit = faEdit;
+  public taskModeEditing: boolean = false;
+  public faArrowUp = faArrowUp;
+  public faTimes = faTimes;
+  public faEdit = faEdit;
 
   constructor(private taskService: TaskService) { }
 

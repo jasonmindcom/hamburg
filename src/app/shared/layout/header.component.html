@@ -18,8 +18,8 @@
 
       <!-- secondary nav -->
       <div class="hidden md:flex items-center space-x-1">
-        <a href="/" class="py-5 px-6 dark:text-gray-300 text-gray-200">Login</a>
-        <button>Signup</button>
+        <a routerLink="/auth" class="py-5 px-6 dark:text-gray-300 text-gray-200">Login</a>
+        <button routerLink="/auth/register">Signup</button>
       </div>
 
       <!-- mobile button goes here -->
@@ -42,5 +42,9 @@
       [ngClass]="{'underline': hasRoute(item.href)}"
       class="block py-2 px-4 text-sm hover:bg-red-400"
     >{{ item.name }}</a>
+    <div class="p-4 border-t-2 border-red-300">
+      <button routerLink="/auth" class="mr-2">Login</button>
+      <button routerLink="/auth/register" class="bg-red-400">Register</button>
+    </div>
   </div>
 </nav>

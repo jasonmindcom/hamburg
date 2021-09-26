@@ -11,7 +11,7 @@ export class EditTaskComponent implements OnInit {
   task!: Task;
   @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  showEditTask: boolean = true;
+  public showEditTask: boolean = true;
 
   constructor() { }
 

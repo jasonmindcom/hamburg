@@ -11,11 +11,11 @@ import { Subscription } from "rxjs";
 export class AddTaskComponent implements OnInit {
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  text!: string;
-  day!: string;
-  reminder: boolean = false;
-  showAddTask!: boolean;
-  subscription: Subscription;
+  public text!: string;
+  public day!: string;
+  public reminder: boolean = false;
+  public showAddTask!: boolean;
+  private subscription: Subscription;
 
   constructor(private uiService: UiService) {
     this.subscription = this.uiService
