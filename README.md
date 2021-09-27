@@ -1,8 +1,7 @@
 # Hamburg - Task Tracker App 
-![version](https://img.shields.io/badge/version-0.2.1-yellow.svg)
+![version](https://img.shields.io/badge/version-0.2.2-yellow.svg)
 
 ### On progress
-* 🔃 Init Lazy-loading for modules
 * 🔃 Init dynamic Toast
 * 🔃 Init ESlint
 
@@ -27,5 +26,6 @@
 * HTTP error handling
 * Edit task
 * Routers
+* Lazy-loading for modules
 
 
