@@ -1,1 +1,25 @@
-<p>login works!</p>
+<h2 class="text-2xl dark:text-gray-200 mb-4">Login</h2>
+
+<form class="m-0 pt-0" (ngSubmit)="login()">
+  <div class="form-control">
+    <label for="email">E-mail</label>
+    <input type="text" name="email" class="form-input"
+           [(ngModel)]="email"
+           id="email" placeholder="tony@example.com">
+  </div>
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input type="password" name="password"
+           [(ngModel)]="password"
+           id="password" placeholder="********">
+  </div>
+
+  <button type="submit" value="Save task" class="w-full">Login</button>
+</form>
+
+<h2 class="text-2xl dark:text-gray-200 mb-4 mt-10">Users</h2>
+<div *ngFor="let user of users">
+  <div class="border-2 border-red-400 rounded-md p-2 mb-2">
+    <p>{{ user.id }}. {{ user.name }} {{ user.surname }} {{ user.email }}</p>
+  </div>
+</div>

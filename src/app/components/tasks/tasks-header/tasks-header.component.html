@@ -1,6 +1,6 @@
 <header>
   <app-button
-    *ngIf="hasRoute('/')"
+    *ngIf="hasRoute('/home')"
     [addingTaskMode]="showAddTask"
     text="{{ showAddTask ? 'Close' : 'Add new task' }}"
     (btnClick)="toggleAddTask()"

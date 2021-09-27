@@ -11,7 +11,7 @@ import {Router} from '@angular/router'
 export class TasksHeaderComponent implements OnInit {
   public title: string = 'Hamburg - Task Tracker';
   public showAddTask!: boolean;
-  private subscription!: Subscription
+  private subscription: Subscription
 
   constructor(private uiService: UiService, private router: Router) {
     this.subscription = this.uiService

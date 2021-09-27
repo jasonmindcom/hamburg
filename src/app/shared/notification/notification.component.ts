@@ -10,7 +10,7 @@ import {faBell, faTimes} from '@fortawesome/free-solid-svg-icons';
 export class NotificationComponent implements OnInit {
   public faBell = faBell;
   public faTimes = faTimes;
-  public visibility: boolean = true;
+  public visibility: boolean = false;
   public notificationName: string = 'Example notification';
   public notificationText: string = 'Pellentesque lacinia cursus magna et sollicitudin. Maecenas pellentesque ex metus, posuere molestie quam lobortis a.';
 

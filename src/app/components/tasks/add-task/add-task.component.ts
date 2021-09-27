@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Task } from "../../../Task";
+import { Task } from "../../../models/Task";
 import { UiService } from "../../../services/ui.service";
 import { Subscription } from "rxjs";
 
@@ -11,8 +11,8 @@ import { Subscription } from "rxjs";
 export class AddTaskComponent implements OnInit {
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  public text!: string;
-  public day!: string;
+  public text: string | undefined;
+  public day: string | undefined;
   public reminder: boolean = false;
   public showAddTask!: boolean;
   private subscription: Subscription;
@@ -27,12 +27,12 @@ export class AddTaskComponent implements OnInit {
   }
 
   onSubmit(){
-    if(!this.text){
+    if(!this.text || !this.day){
       alert('Please add a task')
       return;
     }
 
-    const newTask = {
+    const newTask:Task = {
       text: this.text,
       day: this.day,
       reminder: this.reminder
@@ -43,9 +43,6 @@ export class AddTaskComponent implements OnInit {
     this.text = ''
     this.day = ''
     this.reminder = false;
-
-    // this.showAddTask = false;
-
   }
 
 }
