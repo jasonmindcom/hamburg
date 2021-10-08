@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Task} from "../../../models/Task";
 
 @Component({
@@ -6,17 +6,14 @@ import {Task} from "../../../models/Task";
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.css']
 })
-export class EditTaskComponent implements OnInit {
+export class EditTaskComponent {
   @Input()
   task!: Task;
-  @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() editedTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   public showEditTask: boolean = true;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onSubmit(){
     if(!this.task.text){
@@ -24,7 +21,7 @@ export class EditTaskComponent implements OnInit {
       return;
     }
 
-    this.onEditTask.emit(this.task);
+    this.editedTask.emit(this.task);
   }
 
 }

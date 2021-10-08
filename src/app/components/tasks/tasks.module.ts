@@ -9,6 +9,12 @@ import {AddTaskComponent} from "./add-task/add-task.component";
 import {EditTaskComponent} from "./edit-task/edit-task.component";
 import {TaskItemComponent} from "./task-item/task-item.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {SentenceCasePipe} from "../../pipes/SentenceCase.pipe";
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../../../environments/environment';
+
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 
 @NgModule({
   imports: [
@@ -18,13 +24,16 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     HttpClientModule,
     RouterModule,
     FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   declarations: [
     TasksHeaderComponent,
     ButtonComponent,
     AddTaskComponent,
     EditTaskComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    SentenceCasePipe
   ],
   exports: [
     CommonModule,

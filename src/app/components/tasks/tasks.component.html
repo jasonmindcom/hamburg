@@ -1,9 +1,17 @@
 <app-tasks-header></app-tasks-header>
-<app-add-task (onAddTask)="addTask($event)"></app-add-task>
+<app-add-task (addedTask)="createTask($event)"></app-add-task>
 <app-task-item
   *ngFor="let task of tasks"
   [task]="task"
-  (onDeleteTask)="deleteTask(task)"
-  (onEditTask)="updateTask(task)"
-  (onToggleReminder)="toggleReminder(task)"
+  (deletedTask)="deleteTask(task)"
+  (editedTask)="updateTask(task)"
+  (toggledReminder)="toggleReminder(task)"
 ></app-task-item>
+<div *ngIf="!tasks" class="task flex">
+  <fa-icon
+    [ngStyle]="{'color': 'red'}"
+    [icon]="faSpinner"
+    [pulse]="true"
+    [size]="'lg'"></fa-icon>
+  <h3 class="ml-3">Loading</h3>
+</div>

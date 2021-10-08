@@ -5,7 +5,7 @@ import {User} from "../../models/User";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   public users: User[] = [];
@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.statusUpdated.emit('sfsdf')
     this.userService.getUser().subscribe((users) => (this.users = users),
       () => {},
       () => this.setNotification());

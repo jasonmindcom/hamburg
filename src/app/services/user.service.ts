@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {EventEmitter, Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {User} from "../models/User";
 import {catchError, retry} from "rxjs/operators";
@@ -10,9 +10,11 @@ import {catchError, retry} from "rxjs/operators";
 export class UserService {
   private apiUrl = 'http://localhost:5000/users'
 
+  statusUpdated = new EventEmitter;
+
   constructor(private http:HttpClient) {}
 
-  private handleError(error: HttpErrorResponse) {
+  private static handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error);
@@ -30,7 +32,7 @@ export class UserService {
   getUser():  Observable<User[]>{
     return this.http.get<User[]>(this.apiUrl).pipe(
       retry(3), // retry a failed request up to 3 times
-      catchError(this.handleError)
+      catchError(UserService.handleError)
     );
   }
 }

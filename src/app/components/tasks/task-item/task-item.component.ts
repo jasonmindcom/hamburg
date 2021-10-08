@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../../models/Task';
 import {faTimes, faEdit, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import {TaskService} from "../../../services/task.service";
@@ -8,12 +8,11 @@ import {TaskService} from "../../../services/task.service";
   templateUrl: './task-item.component.html',
   styleUrls: ['./task-item.component.css']
 })
-export class TaskItemComponent implements OnInit {
-  @Input()
-  task!: Task;
-  @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter<Task>();
-  @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
-  @Output() onToggleReminder: EventEmitter<Task> = new EventEmitter<Task>();
+export class TaskItemComponent {
+  @Input() task!: Task;
+  @Output() deletedTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() editedTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() toggledReminder: EventEmitter<Task> = new EventEmitter<Task>();
 
   public taskModeEditing: boolean = false;
   public faArrowUp = faArrowUp;
@@ -22,20 +21,16 @@ export class TaskItemComponent implements OnInit {
 
   constructor(private taskService: TaskService) { }
 
-  ngOnInit(): void {
-  }
-
-  onDelete(task: Task){
-    this.onDeleteTask.emit(task);
+  delete(task: Task){
+    this.deletedTask.emit(task);
   }
 
   onToggle(task: Task){
-    this.onToggleReminder.emit(task);
+    this.toggledReminder.emit(task);
   }
 
-  onEdit(task: Task){
+  onEdit(){
     this.taskModeEditing = !this.taskModeEditing;
-    this.onEditTask.emit(task);
   }
 
   closeTaskModeEditing(){
@@ -44,7 +39,7 @@ export class TaskItemComponent implements OnInit {
 
   editTask(task: Task){
     this.taskModeEditing = !this.taskModeEditing;
-    this.taskService.updateTask(task).subscribe((task) => (console.log(task)));
+    this.taskService.update(task).then();
   }
 
 }

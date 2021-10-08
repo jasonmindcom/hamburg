@@ -8,8 +8,8 @@ import { routing } from './app.routing'
 import { AppComponent } from './app.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { HomeComponent } from './pages/home/home.component';
 
 import {
   FooterComponent,

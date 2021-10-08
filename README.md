@@ -4,6 +4,7 @@
 ### On progress
 * 🔃 Init dynamic Toast
 * 🔃 Init ESlint
+* 🔃 Firebase
 
 ### To do 
 * Unit test
